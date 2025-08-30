@@ -10,5 +10,5 @@ function wait(n) {
     })
     
 }
-
+wait(3)
 module.exports = wait;
