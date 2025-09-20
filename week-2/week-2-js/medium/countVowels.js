@@ -4,9 +4,19 @@
 
   Once you've implemented the logic, test your code by running
 */
+const vowels = 'aeiouAEIOU';
 
 function countVowels(str) {
-    // Your code here
+  let count = 0;
+  // Your code here
+  str = str.split("");
+  str.forEach(item => {
+    if (vowels.includes(item)) count++;
+  });
+  return count;
 }
+
+console.log(countVowels('hello'));
+ 
 
 module.exports = countVowels;

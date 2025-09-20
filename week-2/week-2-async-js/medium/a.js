@@ -18,3 +18,26 @@ fs.readFile('a.txt', 'utf-8')
         return ans
     })
     .then((ans) => fs.writeFile('a.txt', ans));
+
+// OR
+
+function resolves(path,enc,sale) {
+    fs.readFile(path, enc, (err, data) => {
+        sale(data);
+    })
+} 
+const p = new Promise((resolve) => resolves('a.txt','utf-8',resolve));
+p.then((data) => console.log(data));
+
+
+// OR
+function myExecutor(path, enc) {
+    return function (sale) {   // this will be the actual executor
+        fs.readFile(path, enc, (err, data) => sale(data));
+    };
+}
+
+const p2 = new Promise(myExecutor("a.txt", "utf-8"));
+
+p2.then((data) => console.log(data));
+

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>replit</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <h1>Todo list</h1>
+    <h4>1. Take class</h4>
+    <h4 id="todo3">2. Go out to eat</h4>
+    <div>
+        <input type="text"></input>
+        <button onclick="clicked()">Add Todo</button>
+    </div>
+    <script>
+        const todo3 = document.querySelector("#todo3");
+        let count = 0 ;
+        // setInterval(() => {
+        //     todo3.innerHTML = count + ". Go out to eat";
+        //     count++;
+        // },1000)
+        const clicked = () => {
+            const elmVal = document.querySelector("input");
+            let value = elmVal.value;
+            const elm = document.createElement("div");
+            elm.setAttribute("id",count);
+            elm.innerHTML = '<div>' + value + '</div>' + "<button onclick='deleteTodo(" + count +")'>Delete</button>";
+            document.body.appendChild(elm);
+            count++;
+        }
+        function deleteTodo(elm) {
+            const div = document.getElementById(elm);
+            div.remove();
+          console.log("center get loged!");
+        }
+        let p = document.createElement("p");
+        p.innerHTML = "heldsdlow";
+        document.body.appendChild(p);
+    </script>
+</body>
+
+</html>
